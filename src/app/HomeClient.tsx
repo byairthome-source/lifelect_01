@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import InquiryModal from "@/components/InquiryModal";
@@ -58,6 +58,10 @@ function SectionHeading({ label, title, highlight, body, variant = "fade-up" }: 
 export default function HomeClient({ products }: { products: Product[] }) {
   const [inquiryProduct, setInquiryProduct] = useState<Product | null>(null);
   const featured = products.slice(0, 8);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

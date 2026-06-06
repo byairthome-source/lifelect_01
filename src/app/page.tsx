@@ -8,7 +8,10 @@ export default function SplashPage() {
 
   const navigate = useCallback(() => {
     setVisible(false);
-    setTimeout(() => { window.location.href = "/home"; }, 700);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      window.location.replace("/home");
+    }, 700);
   }, []);
 
   useEffect(() => {
