@@ -3,6 +3,8 @@ import JsonLd from "@/components/JsonLd";
 import { getProducts } from "@/lib/products";
 import HomeClient from "../HomeClient";
 
+export const dynamic = "force-dynamic";
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",

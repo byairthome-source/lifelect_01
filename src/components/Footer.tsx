@@ -1,8 +1,20 @@
-import Link from "next/link";
-import { getProducts } from "@/lib/products";
+"use client";
 
-export default async function Footer() {
-  const products = await getProducts();
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+interface FooterProduct { id: string; name: string; slug: string; }
+
+export default function Footer() {
+  const [products, setProducts] = useState<FooterProduct[]>([]);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((r) => r.json())
+      .then(setProducts)
+      .catch(() => {});
+  }, []);
+
   return (
     <footer className="relative z-10 bg-novu-near-black text-white">
       <div className="container-main py-16 lg:py-24">
