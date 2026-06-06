@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Novu Dark Immersive — Base Styles
+   ============================================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg-light text-novu-near-black font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-novu-near-black;
+  }
+  ::selection {
+    background: rgba(254, 78, 2, 0.3);
+    color: #fff;
+  }
+  *:focus-visible {
+    outline: 3px solid #fe4e02;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* ── Layout ── */
+  .container-main {
+    @apply max-w-container mx-auto px-5 md:px-8 lg:px-12;
+  }
+  .section-spacing {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+  .section-spacing-sm {
+    @apply py-16 md:py-20;
+  }
+  .card-spacing {
+    @apply p-7 lg:p-8;
+  }
+  .card-spacing-sm {
+    @apply p-6 lg:p-7;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-black text-white
+           rounded-pill
+           text-label-sm font-medium
+           px-6 py-3
+           hover:bg-black/85 hover:shadow-lg
+           active:scale-[0.98]
+           transition-all duration-300
+           cursor-pointer whitespace-nowrap;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           bg-black text-white
+           rounded-pill
+           text-label-sm font-medium
+           px-6 py-3
+           hover:bg-black/85 hover:shadow-lg
+           active:scale-[0.98]
+           transition-all duration-300
+           cursor-pointer whitespace-nowrap;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center
+           text-white-60
+           text-label-sm font-medium
+           px-6 py-3
+           hover:text-white
+           transition-colors duration-200
+           cursor-pointer whitespace-nowrap;
+  }
+
+  /* ── Section headings ── */
+  .section-label {
+    @apply text-label text-novu-orange font-medium;
+  }
+  .section-title {
+    @apply text-section-md lg:text-section-lg text-novu-near-black font-light;
+  }
+  .section-body {
+    @apply text-body text-novu-near-black-40 max-w-2xl;
+  }
+
+  /* ── Dividers ── */
+  .divider {
+    @apply border-t border-white-5;
+  }
+}
+
+/* ============================================================
+   Animations
+   ============================================================ */
+
+/* ── Page entrance ── */
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-page-in { animation: page-in 0.35s ease-out forwards; }
+
+/* ── Scroll-reveal variants ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scale-up {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes clip-reveal {
+  from { opacity: 0; clip-path: inset(0 100% 0 0); }
+  to   { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+.animate-fade-up     { animation: fade-up     0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.animate-fade-in     { animation: fade-in     0.8s ease-out forwards;                   opacity: 0; }
+.animate-scale-up    { animation: scale-up    0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.animate-slide-left  { animation: slide-left  0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.animate-slide-right { animation: slide-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.animate-clip-reveal { animation: clip-reveal 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards; opacity: 0; }
+
+/* ── Stagger delays (0–7) ── */
+.animate-delay-0 { animation-delay: 0s;    }
+.animate-delay-1 { animation-delay: 0.06s; }
+.animate-delay-2 { animation-delay: 0.12s; }
+.animate-delay-3 { animation-delay: 0.18s; }
+.animate-delay-4 { animation-delay: 0.24s; }
+.animate-delay-5 { animation-delay: 0.30s; }
+.animate-delay-6 { animation-delay: 0.36s; }
+.animate-delay-7 { animation-delay: 0.42s; }
+
+/* ── Animated section divider ── */
+.section-divider-line {
+  position: relative;
+  height: 2px;
+  background: transparent;
+  overflow: hidden;
+}
+.section-divider-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(254,78,2,0.25), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section-divider-line.revealed::after {
+  transform: scaleX(1);
+}
+
+/* ── Float / breathe for accent elements ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%      { opacity: 0.25; transform: scale(1.06); }
+}
+.animate-breathe { animation: breathe 5s ease-in-out infinite; }
+
+/* ── Wave bounce for "Get in Touch" button ── */
+@keyframes bounce-wave {
+  0%, 100% { transform: translateY(0); }
+  6%  { transform: translateY(-5px); }
+  12% { transform: translateY(0); }
+}
+.animate-bounce-wave {
+  animation: bounce-wave 2.5s ease-in-out infinite;
+  display: inline-block;
+}
+.group-cta:hover .animate-bounce-wave {
+  animation: none;
+  transform: translateY(0);
+}
+
+/* ── Counter number pop ── */
+@keyframes counter-pop {
+  0%   { opacity: 0; transform: scale(0.6) translateY(12px); }
+  60%  { opacity: 1; transform: scale(1.08) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-counter-pop {
+  animation: counter-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+/* ============================================================
+   Reduced Motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-fade-up, .animate-fade-in, .animate-scale-up,
+  .animate-slide-left, .animate-slide-right, .animate-clip-reveal,
+  .animate-page-in, .animate-counter-pop,
+  .animate-float, .animate-breathe, .animate-bounce-wave {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .section-divider-line::after {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   Cover-scroll rounded top corners
+   ============================================================ */
+.cover-scroll-top {
+  border-radius: 50px 50px 0 0;
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #444; }
+
+/* ============================================================
+   Skip Link
+   ============================================================ */
+.skip-link {
+  @apply absolute top-0 left-0 bg-novu-orange text-white px-4 py-2 z-[9999] -translate-y-full focus:translate-y-0 transition-transform;
+}
