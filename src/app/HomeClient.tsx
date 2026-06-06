@@ -304,11 +304,18 @@ export default function HomeClient({ products }: { products: Product[] }) {
               </Link>
             </ScrollReveal>
             <ScrollReveal variant="slide-right">
-              <div className="bg-white rounded-2xl border border-novu-warm-100 p-4 aspect-[4/3] flex items-center justify-center text-novu-near-black-15">
-                <div className="text-center">
-                  <span className="text-6xl block mb-4">🏭</span>
-                  <p className="text-body-sm">5,000m² Shenzhen Factory</p>
-                  <p className="text-label-sm text-novu-near-black-15 mt-1">ISO 9001 · BSCI Certified</p>
+              <div className="relative bg-white rounded-2xl border border-novu-warm-100 overflow-hidden aspect-[4/3] group">
+                <Image
+                  src="/images/Factory/Factory.png"
+                  alt="Lifelect Shenzhen Factory — 5,000m² ISO 9001 & BSCI Certified Manufacturing Facility"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-body-lg text-white font-medium">5,000m² Shenzhen Factory</p>
+                  <p className="text-body-sm text-white/70 mt-1">ISO 9001 · BSCI Certified</p>
                 </div>
               </div>
             </ScrollReveal>
