@@ -9,6 +9,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+  html.no-scroll {
+    overflow: hidden;
   }
   body {
     @apply bg-bg-light text-novu-near-black font-sans antialiased;

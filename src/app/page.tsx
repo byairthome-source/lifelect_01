@@ -8,16 +8,27 @@ export default function SplashPage() {
 
   const navigate = useCallback(() => {
     setVisible(false);
+    // Lock scroll during fade-out
+    document.documentElement.classList.add("no-scroll");
     setTimeout(() => {
-      window.scrollTo(0, 0);
-      window.location.replace("/home");
+      // Force scroll to absolute top before navigating
+      window.scrollTo({ top: 0, behavior: "instant" });
+      window.location.replace("/home#top");
     }, 700);
   }, []);
 
   useEffect(() => {
+    // Ensure we start at top
+    window.scrollTo({ top: 0, behavior: "instant" });
+    document.documentElement.classList.add("no-scroll");
+
     const t1 = setTimeout(() => setShowSkip(true), 2000);
     const t2 = setTimeout(navigate, 4500);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      document.documentElement.classList.remove("no-scroll");
+    };
   }, [navigate]);
 
   return (

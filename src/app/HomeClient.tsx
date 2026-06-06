@@ -60,7 +60,8 @@ export default function HomeClient({ products }: { products: Product[] }) {
   const featured = products.slice(0, 8);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    document.documentElement.classList.remove("no-scroll");
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
   return (
