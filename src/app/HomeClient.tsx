@@ -66,7 +66,9 @@ export default function HomeClient({ products }: { products: Product[] }) {
 
   return (
     <>
-      <div className="relative z-10 mt-[100vh] bg-bg-light shadow-[0_-20px_60px_-20px_rgba(0,0,0,0.15)] cover-scroll-top animate-page-in">
+      {/* Spacer for hero banner — keeps page starting at top */}
+      <div className="h-screen" aria-hidden="true" />
+      <div className="relative z-10 bg-bg-light shadow-[0_-20px_60px_-20px_rgba(0,0,0,0.15)] cover-scroll-top animate-page-in">
 
       {/* ═══════════ 1. Stats Bar ═══════════ */}
       <section className="py-16 md:py-20 bg-novu-near-black relative overflow-hidden">
