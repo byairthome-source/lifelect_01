@@ -62,6 +62,10 @@ export default function HomeClient({ products }: { products: Product[] }) {
   useEffect(() => {
     document.documentElement.classList.remove("no-scroll");
     window.scrollTo({ top: 0, behavior: "instant" });
+    // Double-check after paint
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
   }, []);
 
   return (
