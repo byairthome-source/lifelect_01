@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import InquiryModal from "@/components/InquiryModal";
@@ -103,27 +103,55 @@ export default function HomeClient({ products }: { products: Product[] }) {
               highlight="Solution"
               body="Six specialized platforms covering every glass cleaning scenario — from home windows to skyscraper facades."
             />
-            <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory">
-              {productCategories.map((cat, i) => (
-                <ScrollReveal key={cat.slug} delay={Math.min(i, 5)} variant="scale-up">
-                  <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
-                    <Link
-                      href={`/products/${cat.slug}`}
-                      className="group block bg-white rounded-2xl border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 overflow-hidden flex-shrink-0 snap-start w-[360px]"
-                    >
-                      <div className="aspect-[16/10] bg-novu-warm-50 relative overflow-hidden">
-                        <Image src={cat.image} alt={cat.name} fill sizes="360px" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
-                        <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                      </div>
-                      <div className="p-5">
-                        <h3 className="text-body-lg text-novu-near-black mb-1.5">{cat.name}</h3>
-                        <p className="text-body-sm text-novu-near-black-55 leading-relaxed mb-4 line-clamp-2">{cat.desc}</p>
-                        <span className="text-label-sm text-novu-orange group-hover:underline">View More →</span>
-                      </div>
-                    </Link>
-                  </BorderGlow>
-                </ScrollReveal>
-              ))}
+            <div className="relative">
+              {/* Left arrow */}
+              <button
+                onClick={() => {
+                  const el = document.getElementById("cat-carousel");
+                  if (el) el.scrollBy({ left: -400, behavior: "smooth" });
+                }}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 border border-novu-warm-200 shadow-md flex items-center justify-center text-novu-near-black-55 hover:text-novu-near-black hover:bg-white transition-all duration-200 -ml-2"
+                aria-label="Scroll left"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+
+              {/* Right arrow */}
+              <button
+                onClick={() => {
+                  const el = document.getElementById("cat-carousel");
+                  if (el) el.scrollBy({ left: 400, behavior: "smooth" });
+                }}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 border border-novu-warm-200 shadow-md flex items-center justify-center text-novu-near-black-55 hover:text-novu-near-black hover:bg-white transition-all duration-200 -mr-2"
+                aria-label="Scroll right"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+
+              {/* Carousel track */}
+              <div id="cat-carousel" className="flex gap-5 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory px-1">
+                {productCategories.map((cat, i) => (
+                  <ScrollReveal key={cat.slug} delay={Math.min(i, 5)} variant="scale-up">
+                    <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
+                      <Link
+                        href={`/products/${cat.slug}`}
+                        className="group block bg-white rounded-2xl border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 overflow-hidden flex-shrink-0 snap-start"
+                        style={{ width: "clamp(280px, 30vw, 380px)" }}
+                      >
+                        <div className="aspect-[16/10] bg-novu-warm-50 relative overflow-hidden">
+                          <Image src={cat.image} alt={cat.name} fill sizes="380px" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
+                          <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                        </div>
+                        <div className="p-5">
+                          <h3 className="text-body-lg text-novu-near-black mb-1.5">{cat.name}</h3>
+                          <p className="text-body-sm text-novu-near-black-55 leading-relaxed mb-4 line-clamp-2">{cat.desc}</p>
+                          <span className="text-label-sm text-novu-orange group-hover:underline">View More →</span>
+                        </div>
+                      </Link>
+                    </BorderGlow>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
           </div>
         </section>
