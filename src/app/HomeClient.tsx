@@ -109,15 +109,16 @@ export default function HomeClient({ products }: { products: Product[] }) {
                   <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
                     <Link
                       href={`/products/${cat.slug}`}
-                      className="group flex flex-col bg-white rounded-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden w-[220px] h-[280px] flex-shrink-0 snap-start"
+                      className="group block bg-white rounded-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden w-[260px] flex-shrink-0 snap-start"
                     >
-                      <div className="h-[140px] bg-novu-warm-50 relative overflow-hidden flex-shrink-0">
-                        <Image src={cat.image} alt={cat.name} fill sizes="220px" className="object-contain p-2 transition-transform duration-700 group-hover:scale-105" />
+                      <div className="aspect-[16/10] bg-novu-warm-50 relative overflow-hidden">
+                        <Image src={cat.image} alt={cat.name} fill sizes="260px" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
                         <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                       </div>
-                      <div className="flex-1 p-4 flex flex-col justify-center">
-                        <h3 className="text-body-lg text-novu-near-black mb-1">{cat.name}</h3>
-                        <p className="text-body-sm text-novu-near-black-55 leading-relaxed line-clamp-2">{cat.desc}</p>
+                      <div className="p-5">
+                        <h3 className="text-body-lg text-novu-near-black mb-1.5">{cat.name}</h3>
+                        <p className="text-body-sm text-novu-near-black-55 leading-relaxed mb-4 line-clamp-2">{cat.desc}</p>
+                        <span className="text-label-sm text-novu-orange group-hover:underline">View More →</span>
                       </div>
                     </Link>
                   </BorderGlow>
