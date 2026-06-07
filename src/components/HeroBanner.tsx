@@ -1,17 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import Aurora from "./Aurora";
+import PixelSnow from "./PixelSnow";
 
 export default function HeroBanner() {
   return (
     <section className="fixed inset-0 z-0 flex items-center justify-center overflow-hidden bg-black">
-      {/* Aurora background effect */}
-      <Aurora
-        colorStops={["#fe4e02", "#14171a", "#fe4e02"]}
-        blend={0.6}
-        amplitude={1.2}
-        speed={0.4}
+      {/* Pixel snow background effect */}
+      <PixelSnow
+        color="#fe4e02"
+        flakeSize={0.008}
+        minFlakeSize={1.5}
+        pixelResolution={400}
+        speed={0.6}
+        density={0.15}
+        direction={125}
+        brightness={1.2}
+        variant="round"
+        depthFade={6}
       />
 
       <img
