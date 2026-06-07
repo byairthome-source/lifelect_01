@@ -109,10 +109,10 @@ export default function HomeClient({ products }: { products: Product[] }) {
                   <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
                     <Link
                       href={`/products/${cat.slug}`}
-                      className="group block bg-white rounded-2xl border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 overflow-hidden flex-shrink-0 snap-start w-[320px]"
+                      className="group block bg-white rounded-2xl border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 overflow-hidden flex-shrink-0 snap-start w-[360px]"
                     >
                       <div className="aspect-[16/10] bg-novu-warm-50 relative overflow-hidden">
-                        <Image src={cat.image} alt={cat.name} fill sizes="320px" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
+                        <Image src={cat.image} alt={cat.name} fill sizes="360px" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
                         <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                       </div>
                       <div className="p-5">
