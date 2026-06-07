@@ -1,23 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import LightPillar from "./LightPillar";
+import Aurora from "./Aurora";
 
 export default function HeroBanner() {
   return (
     <section className="fixed inset-0 z-0 flex items-center justify-center overflow-hidden bg-black">
-      {/* Light pillar background effect */}
-      <LightPillar
-        topColor="#fe4e02"
-        bottomColor="#14171a"
-        intensity={0.8}
-        rotationSpeed={0.2}
-        glowAmount={0.004}
-        pillarWidth={2.5}
-        pillarHeight={0.35}
-        noiseIntensity={0.3}
-        quality="medium"
-        mixBlendMode="screen"
+      {/* Aurora background effect */}
+      <Aurora
+        colorStops={["#fe4e02", "#14171a", "#fe4e02"]}
+        blend={0.6}
+        amplitude={1.2}
+        speed={0.4}
       />
 
       <img
@@ -31,19 +25,16 @@ export default function HeroBanner() {
 
       {/* Centered text content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Main title: large bold white, two lines */}
         <h1 className="text-white font-bold text-5xl md:text-7xl lg:text-[80px] leading-[1.1] mb-6 tracking-tight">
           Smart Window Cleaning<br />
           for a Brighter Home
         </h1>
 
-        {/* Subtitle: small thin white */}
         <p className="text-white/70 text-lg md:text-xl font-light max-w-xl mx-auto mb-10 leading-relaxed">
           Professional-grade robotic window cleaners engineered with 5000Pa suction,
           intelligent path planning, and uncompromising safety.
         </p>
 
-        {/* White rounded button */}
         <Link
           href="/products"
           className="inline-flex items-center gap-2 bg-white text-novu-near-black font-medium
