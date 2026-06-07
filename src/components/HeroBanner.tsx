@@ -8,7 +8,7 @@ export default function HeroBanner() {
     <section className="fixed inset-0 z-0 flex items-center justify-center overflow-hidden bg-black">
       {/* Pixel snow background effect */}
       <PixelSnow
-        color="#fe4e02"
+        color="#ffffff"
         flakeSize={0.008}
         minFlakeSize={1.5}
         pixelResolution={400}
