@@ -1,18 +1,33 @@
 "use client";
 
 import Link from "next/link";
+import LightPillar from "./LightPillar";
 
 export default function HeroBanner() {
   return (
     <section className="fixed inset-0 z-0 flex items-center justify-center overflow-hidden bg-black">
+      {/* Light pillar background effect */}
+      <LightPillar
+        topColor="#fe4e02"
+        bottomColor="#14171a"
+        intensity={0.8}
+        rotationSpeed={0.2}
+        glowAmount={0.004}
+        pillarWidth={2.5}
+        pillarHeight={0.35}
+        noiseIntensity={0.3}
+        quality="medium"
+        mixBlendMode="screen"
+      />
+
       <img
         src="/images/banners/hero.jpg"
         alt="Lifelect window cleaning robot on glass facade"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover opacity-40"
         loading="eager"
         fetchPriority="high"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50 z-[1]" />
 
       {/* Centered text content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
