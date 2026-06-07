@@ -7,6 +7,7 @@ import InquiryModal from "@/components/InquiryModal";
 import QuickQuoteForm from "@/components/QuickQuoteForm";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedDivider from "@/components/AnimatedDivider";
+import BorderGlow from "@/components/BorderGlow";
 import type { Product } from "@/data/products";
 import { productCategories } from "@/data/categories";
 import { projectCases } from "@/data/cases";
@@ -105,20 +106,22 @@ export default function HomeClient({ products }: { products: Product[] }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {productCategories.map((cat, i) => (
                 <ScrollReveal key={cat.slug} delay={Math.min(i, 5)} variant="scale-up">
-                  <Link
-                    href={`/products/${cat.slug}`}
-                    className="group block bg-white rounded-2xl border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                  >
-                    <div className="aspect-[16/10] bg-novu-warm-50 relative overflow-hidden">
-                      <Image src={cat.image} alt={cat.name} fill sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="text-body-lg text-novu-near-black mb-1.5">{cat.name}</h3>
-                      <p className="text-body-sm text-novu-near-black-55 leading-relaxed mb-4 line-clamp-2">{cat.desc}</p>
-                      <span className="text-label-sm text-novu-orange group-hover:underline">View More →</span>
-                    </div>
-                  </Link>
+                  <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
+                    <Link
+                      href={`/products/${cat.slug}`}
+                      className="group block bg-white rounded-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                    >
+                      <div className="aspect-[16/10] bg-novu-warm-50 relative overflow-hidden">
+                        <Image src={cat.image} alt={cat.name} fill sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
+                        <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                      </div>
+                      <div className="p-5">
+                        <h3 className="text-body-lg text-novu-near-black mb-1.5">{cat.name}</h3>
+                        <p className="text-body-sm text-novu-near-black-55 leading-relaxed mb-4 line-clamp-2">{cat.desc}</p>
+                        <span className="text-label-sm text-novu-orange group-hover:underline">View More →</span>
+                      </div>
+                    </Link>
+                  </BorderGlow>
                 </ScrollReveal>
               ))}
             </div>
@@ -143,12 +146,14 @@ export default function HomeClient({ products }: { products: Product[] }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {WHY_US.map((item, i) => (
                 <ScrollReveal key={item.title} delay={Math.min(i, 5)} variant="fade-up">
-                  <div className="bg-white rounded-2xl p-7 border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="text-3xl block mb-4">{item.icon}</span>
-                    <h3 className="text-body-lg text-novu-near-black mb-2">{item.title}</h3>
-                    <p className="text-body-sm text-novu-near-black-55 leading-relaxed">{item.desc}</p>
-                  </div>
+                  <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
+                    <div className="bg-white rounded-2xl p-7 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
+                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <span className="text-3xl block mb-4">{item.icon}</span>
+                      <h3 className="text-body-lg text-novu-near-black mb-2">{item.title}</h3>
+                      <p className="text-body-sm text-novu-near-black-55 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </BorderGlow>
                 </ScrollReveal>
               ))}
             </div>
@@ -174,32 +179,34 @@ export default function HomeClient({ products }: { products: Product[] }) {
                 const anim = row % 2 === 0 ? "slide-left" : "slide-right";
                 return (
                   <ScrollReveal key={product.id} delay={i % 4} variant={anim as "slide-left" | "slide-right"}>
-                    <article className="group bg-white rounded-2xl border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                      <div className="aspect-[4/3] bg-novu-warm-50 relative overflow-hidden">
-                        <Image src={product.image} alt={product.name} fill sizes="(max-width:640px)100vw,(max-width:1024px)50vw,25vw" className="object-contain p-2 transition-transform duration-700 group-hover:scale-105" />
-                      </div>
-                      <div className="p-5">
-                        <p className="text-label-sm text-novu-orange uppercase tracking-[0.1em] mb-1.5">{product.series}</p>
-                        <h3 className="text-body-lg text-novu-near-black mb-3">{product.name}</h3>
-                        <div className="space-y-1 mb-5">
-                          {product.specs.slice(0, 3).map((s) => (
-                            <div key={s.key} className="flex justify-between text-body-sm">
-                              <span className="text-novu-near-black-40">{s.key}</span>
-                              <span className="text-novu-near-black-60">{s.value}{s.unit ? ` ${s.unit}` : ""}</span>
-                            </div>
-                          ))}
+                    <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
+                      <article className="group bg-white rounded-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                        <div className="aspect-[4/3] bg-novu-warm-50 relative overflow-hidden">
+                          <Image src={product.image} alt={product.name} fill sizes="(max-width:640px)100vw,(max-width:1024px)50vw,25vw" className="object-contain p-2 transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <div className="flex gap-2">
-                          <Link href={`/products/${product.slug}`} className="flex-1 text-center py-2 text-label-sm rounded-pill border border-novu-warm-200 text-novu-near-black-55 hover:border-novu-near-black-15 hover:text-novu-near-black transition-all duration-200">
-                            View Detail
-                          </Link>
-                          <button onClick={() => setInquiryProduct(product)} className="flex-1 py-2 text-label-sm rounded-pill bg-black text-white hover:bg-black/85 transition-all duration-200">
-                            Get Quote
-                          </button>
+                        <div className="p-5">
+                          <p className="text-label-sm text-novu-orange uppercase tracking-[0.1em] mb-1.5">{product.series}</p>
+                          <h3 className="text-body-lg text-novu-near-black mb-3">{product.name}</h3>
+                          <div className="space-y-1 mb-5">
+                            {product.specs.slice(0, 3).map((s) => (
+                              <div key={s.key} className="flex justify-between text-body-sm">
+                                <span className="text-novu-near-black-40">{s.key}</span>
+                                <span className="text-novu-near-black-60">{s.value}{s.unit ? ` ${s.unit}` : ""}</span>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="flex gap-2">
+                            <Link href={`/products/${product.slug}`} className="flex-1 text-center py-2 text-label-sm rounded-pill border border-novu-warm-200 text-novu-near-black-55 hover:border-novu-near-black-15 hover:text-novu-near-black transition-all duration-200">
+                              View Detail
+                            </Link>
+                            <button onClick={() => setInquiryProduct(product)} className="flex-1 py-2 text-label-sm rounded-pill bg-black text-white hover:bg-black/85 transition-all duration-200">
+                              Get Quote
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    </article>
+                      </article>
+                    </BorderGlow>
                   </ScrollReveal>
                 );
               })}
@@ -230,20 +237,22 @@ export default function HomeClient({ products }: { products: Product[] }) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {projectCases.map((c, i) => (
                 <ScrollReveal key={c.title} delay={Math.min(i, 5)} variant="fade-in">
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/8 hover:border-white/15 transition-all duration-300">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-label-sm text-novu-orange uppercase tracking-[0.1em]">{c.industry}</span>
-                      <span className="text-white-15">·</span>
-                      <span className="text-label-sm text-white-40">{c.region}</span>
+                  <BorderGlow borderRadius={16} glowRadius={25} backgroundColor="rgba(255,255,255,0.05)" colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55" fillOpacity={0.3}>
+                    <div className="bg-white/5 rounded-2xl p-7 hover:bg-white/8 transition-all duration-300">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-label-sm text-novu-orange uppercase tracking-[0.1em]">{c.industry}</span>
+                        <span className="text-white-15">·</span>
+                        <span className="text-label-sm text-white-40">{c.region}</span>
+                      </div>
+                      <h3 className="text-body-lg text-white mb-2">{c.title}</h3>
+                      <p className="text-body-sm text-white-40 leading-relaxed mb-5">{c.desc}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {c.highlights.map((h) => (
+                          <span key={h} className="text-label-sm text-white-60 bg-white/5 border border-white/10 rounded-full px-3 py-1">{h}</span>
+                        ))}
+                      </div>
                     </div>
-                    <h3 className="text-body-lg text-white mb-2">{c.title}</h3>
-                    <p className="text-body-sm text-white-40 leading-relaxed mb-5">{c.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {c.highlights.map((h) => (
-                        <span key={h} className="text-label-sm text-white-60 bg-white/5 border border-white/10 rounded-full px-3 py-1">{h}</span>
-                      ))}
-                    </div>
-                  </div>
+                  </BorderGlow>
                 </ScrollReveal>
               ))}
             </div>
@@ -272,13 +281,15 @@ export default function HomeClient({ products }: { products: Product[] }) {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               {CERTS.map((cert, i) => (
                 <ScrollReveal key={cert.name} delay={Math.min(i, 5)} variant="scale-up">
-                  <div className="bg-white border border-novu-warm-100 rounded-2xl p-6 text-center hover:border-novu-orange/30 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300">
-                    <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-novu-warm-50 flex items-center justify-center">
-                      <span className="text-body-lg font-semibold text-novu-near-black-55">✓</span>
+                  <BorderGlow borderRadius={16} glowRadius={20} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
+                    <div className="bg-white rounded-2xl p-6 text-center hover:-translate-y-1 transition-all duration-300">
+                      <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-novu-warm-50 flex items-center justify-center">
+                        <span className="text-body-lg font-semibold text-novu-near-black-55">✓</span>
+                      </div>
+                      <p className="text-label-sm text-novu-near-black font-medium">{cert.name}</p>
+                      <p className="text-body-sm text-novu-near-black-40 mt-0.5">{cert.desc}</p>
                     </div>
-                    <p className="text-label-sm text-novu-near-black font-medium">{cert.name}</p>
-                    <p className="text-body-sm text-novu-near-black-40 mt-0.5">{cert.desc}</p>
-                  </div>
+                  </BorderGlow>
                 </ScrollReveal>
               ))}
             </div>
