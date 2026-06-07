@@ -6,6 +6,7 @@ import PublicShell from "@/components/PublicShell";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ToastProvider from "@/components/ToastProvider";
+import SplashCursor from "@/components/SplashCursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton />
           <ToastProvider />
+          <SplashCursor RAINBOW_MODE={false} COLOR="#fe4e02" SPLAT_FORCE={3000} SPLAT_RADIUS={0.15} DENSITY_DISSIPATION={4} />
         </SessionProvider>
       </body>
     </html>
