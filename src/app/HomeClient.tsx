@@ -103,22 +103,21 @@ export default function HomeClient({ products }: { products: Product[] }) {
               highlight="Solution"
               body="Six specialized platforms covering every glass cleaning scenario — from home windows to skyscraper facades."
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory -mx-2 px-2">
               {productCategories.map((cat, i) => (
                 <ScrollReveal key={cat.slug} delay={Math.min(i, 5)} variant="scale-up">
                   <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
                     <Link
                       href={`/products/${cat.slug}`}
-                      className="group block bg-white rounded-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                      className="group block bg-white rounded-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden w-[220px] flex-shrink-0 snap-start"
                     >
-                      <div className="aspect-[16/10] bg-novu-warm-50 relative overflow-hidden">
-                        <Image src={cat.image} alt={cat.name} fill sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
+                      <div className="aspect-[4/3] bg-novu-warm-50 relative overflow-hidden">
+                        <Image src={cat.image} alt={cat.name} fill sizes="220px" className="object-contain p-2 transition-transform duration-700 group-hover:scale-105" />
                         <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                       </div>
-                      <div className="p-5">
-                        <h3 className="text-body-lg text-novu-near-black mb-1.5">{cat.name}</h3>
-                        <p className="text-body-sm text-novu-near-black-55 leading-relaxed mb-4 line-clamp-2">{cat.desc}</p>
-                        <span className="text-label-sm text-novu-orange group-hover:underline">View More →</span>
+                      <div className="p-4">
+                        <h3 className="text-body-lg text-novu-near-black mb-1">{cat.name}</h3>
+                        <p className="text-body-sm text-novu-near-black-55 leading-relaxed line-clamp-2">{cat.desc}</p>
                       </div>
                     </Link>
                   </BorderGlow>
