@@ -147,13 +147,13 @@ export default function HomeClient({ products }: { products: Product[] }) {
             </ScrollReveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {WHY_US.map((item, i) => (
-                <ScrollReveal key={item.title} delay={Math.min(i, 5)} variant="fade-up">
-                  <BorderGlow borderRadius={16} glowRadius={25} backgroundColor="rgba(255,255,255,0.03)" colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55" fillOpacity={0.3}>
-                    <div className="bg-white/[0.03] rounded-2xl p-7 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden border border-white/[0.06]">
+                <ScrollReveal key={item.title} delay={Math.min(i, 5)} variant="fade-up" className="h-full">
+                  <BorderGlow borderRadius={16} glowRadius={25} backgroundColor="rgba(255,255,255,0.03)" colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55" fillOpacity={0.3} className="h-full">
+                    <div className="bg-white/[0.03] rounded-2xl p-7 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden border border-white/[0.06] h-full flex flex-col">
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <span className="text-3xl block mb-4">{item.icon}</span>
                       <h3 className="text-body-lg text-white mb-2">{item.title}</h3>
-                      <p className="text-body-sm text-white-60 leading-relaxed">{item.desc}</p>
+                      <p className="text-body-sm text-white-60 leading-relaxed flex-1">{item.desc}</p>
                     </div>
                   </BorderGlow>
                 </ScrollReveal>
