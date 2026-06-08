@@ -164,9 +164,9 @@ export default function SplashCursor({
       constructor(vertexShader: WebGLShader, fragmentShaderSource: string) {
         this.vertexShader = vertexShader;
         this.fragmentShaderSource = fragmentShaderSource;
-        this.programs = [];
+        this.programs = {};
         this.activeProgram = null;
-        this.uniforms = [];
+        this.uniforms = {};
       }
       setKeywords(keywords: string[]) {
         let hash = 0;
