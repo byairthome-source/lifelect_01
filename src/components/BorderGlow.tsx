@@ -60,7 +60,7 @@ export default function BorderGlow({
   glowRadius = 30,
   glowIntensity = 1.0,
   coneSpread = 25,
-  animated = false,
+  animated = false, // eslint-disable-line @typescript-eslint/no-unused-vars
   colors = ["#fe4e02", "#f472b6", "#38bdf8"],
   fillOpacity = 0.5,
 }: BorderGlowProps) {
