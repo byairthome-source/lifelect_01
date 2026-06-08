@@ -87,7 +87,7 @@ export default function SplashCursor({
 
     const { gl: _gl, ext } = getWebGLContext(canvas);
     if (!_gl) return;
-    const gl: WebGLRenderingContext = _gl;
+    const gl = _gl!;
     if (!ext.supportLinearFiltering) {
       config.DYE_RESOLUTION = 256;
       config.SHADING = false;
