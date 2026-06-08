@@ -133,25 +133,27 @@ export default function HomeClient({ products }: { products: Product[] }) {
 
       {/* ═══════════ 3. Why Choose Us ═══════════ */}
       <ScrollReveal variant="fade-in">
-        <section className="py-20 md:py-28 lg:py-36 bg-novu-warm-50 relative overflow-hidden">
-          <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full bg-novu-orange/[0.02] animate-breathe pointer-events-none" aria-hidden="true" />
+        <section className="py-20 md:py-28 lg:py-36 bg-novu-near-black relative overflow-hidden">
+          <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full bg-novu-orange/[0.03] animate-breathe pointer-events-none" aria-hidden="true" />
           <div className="container-main relative">
-            <SectionHeading
-              label="Why Choose Us"
-              title="Built for"
-              highlight="Procurement"
-              body="Everything a B2B buyer needs — factory-direct pricing, custom engineering, and supply chain reliability."
-              variant="scale-up"
-            />
+            <ScrollReveal className="mb-12 text-center" variant="scale-up">
+              <p className="section-label mb-3">Why Choose Us</p>
+              <h2 className="text-section-md lg:text-section-lg text-white font-light">
+                Built for <span className="font-serif italic text-novu-orange">Procurement</span>
+              </h2>
+              <p className="text-body text-white-40 max-w-2xl mx-auto mt-4">
+                Everything a B2B buyer needs — factory-direct pricing, custom engineering, and supply chain reliability.
+              </p>
+            </ScrollReveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {WHY_US.map((item, i) => (
                 <ScrollReveal key={item.title} delay={Math.min(i, 5)} variant="fade-up">
-                  <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
-                    <div className="bg-white rounded-2xl p-7 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
+                  <BorderGlow borderRadius={16} glowRadius={25} backgroundColor="rgba(255,255,255,0.03)" colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55" fillOpacity={0.3}>
+                    <div className="bg-white/[0.03] rounded-2xl p-7 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden border border-white/[0.06]">
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <span className="text-3xl block mb-4">{item.icon}</span>
-                      <h3 className="text-body-lg text-novu-near-black mb-2">{item.title}</h3>
-                      <p className="text-body-sm text-novu-near-black-55 leading-relaxed">{item.desc}</p>
+                      <h3 className="text-body-lg text-white mb-2">{item.title}</h3>
+                      <p className="text-body-sm text-white-50 leading-relaxed">{item.desc}</p>
                     </div>
                   </BorderGlow>
                 </ScrollReveal>
