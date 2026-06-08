@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 "use client";
 
 import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
