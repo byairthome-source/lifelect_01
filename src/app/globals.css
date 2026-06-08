@@ -64,11 +64,11 @@
   }
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2
-           bg-black text-white
+           bg-transparent text-novu-near-black border border-novu-near-black/20
            rounded-pill
            text-label-sm font-medium
            px-6 py-3
-           hover:bg-black/85 hover:shadow-lg
+           hover:bg-novu-near-black hover:text-white hover:shadow-lg
            active:scale-[0.98]
            transition-all duration-300
            cursor-pointer whitespace-nowrap;

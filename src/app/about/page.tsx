@@ -7,14 +7,14 @@ const milestones = [
   { year: "2019", title: "First Product", desc: "Launched W8 — compact window cleaning robot for residential markets." },
   { year: "2020", title: "CE & FCC Certified", desc: "Achieved international safety certifications, opening European and North American markets." },
   { year: "2022", title: "W10 Series", desc: "Introduced W10 RollerBrush technology and W10-L 100% wet mop system — flagship innovations." },
-  { year: "2024", title: "Global Reach", desc: "Products sold in 30+ countries across 6 continents with dedicated regional support teams." },
+  { year: "2024", title: "Global Reach", desc: "Products sold in 50+ countries across 6 continents with dedicated regional support teams." },
 ];
 
 const stats = [
-  { value: "30+", label: "Countries Served" },
-  { value: "500K+", label: "Units Shipped" },
-  { value: "47", label: "Point QC Inspection" },
-  { value: "12", label: "Time Zones Covered" },
+  { value: "12+", label: "Years of Manufacturing" },
+  { value: "50+", label: "Countries Served" },
+  { value: "200K+", label: "Units Deployed" },
+  { value: "4h", label: "Avg. Response Time" },
 ];
 
 export default function AboutPage() {

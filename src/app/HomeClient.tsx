@@ -270,7 +270,7 @@ export default function HomeClient({ products }: { products: Product[] }) {
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 mb-20">
               {partnerLogos.map((name, i) => (
                 <ScrollReveal key={name} delay={Math.min(i, 7)} variant="fade-in">
-                  <span className="text-section-md text-novu-near-black-5 font-light uppercase tracking-wider hover:text-novu-near-black-15 transition-colors duration-500 cursor-default">
+                  <span className="text-section-md text-novu-near-black-15 font-light uppercase tracking-wider hover:text-novu-near-black-40 transition-colors duration-500 cursor-default">
                     {name}
                   </span>
                 </ScrollReveal>

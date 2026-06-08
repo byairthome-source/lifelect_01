@@ -47,7 +47,6 @@ export default function ProductDetailClient({ product, moreProducts }: { product
           <p className="text-body text-novu-near-black-55 max-w-2xl mb-8">{product.subtitle}</p>
           <div className="flex flex-wrap gap-3">
             <button onClick={() => setInquiryOpen(true)} className="btn-primary">Request Quote</button>
-            <button className="btn-outline">Download Specs</button>
           </div>
         </div>
       </section>

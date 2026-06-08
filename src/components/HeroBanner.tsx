@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import PixelSnow from "./PixelSnow";
 
 export default function HeroBanner() {
@@ -20,12 +21,13 @@ export default function HeroBanner() {
         depthFade={6}
       />
 
-      <img
+      <Image
         src="/images/banners/hero.jpg"
         alt="Lifelect window cleaning robot on glass facade"
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
-        loading="eager"
-        fetchPriority="high"
+        fill
+        sizes="100vw"
+        priority
+        className="object-cover opacity-40"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50 z-[1]" />
 
