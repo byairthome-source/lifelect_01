@@ -497,14 +497,16 @@ export default function SplashCursor({
     const displayMaterial = new Material(baseVertexShader, displayShaderSource);
 
     function initFramebuffers() {
+      const _gl = gl;
+      if (!_gl) return;
       const simRes = getResolution(config.SIM_RESOLUTION);
       const dyeRes = getResolution(config.DYE_RESOLUTION);
       const texType = ext.halfFloatTexType;
       const rgba = ext.formatRGBA!;
       const rg = ext.formatRG!;
       const r = ext.formatR!;
-      const filtering = ext.supportLinearFiltering ? gl.LINEAR : gl.NEAREST;
-      gl.disable(gl.BLEND);
+      const filtering = ext.supportLinearFiltering ? _gl.LINEAR : _gl.NEAREST;
+      _gl.disable(_gl.BLEND);
 
       if (!dye) dye = createDoubleFBO(dyeRes.width, dyeRes.height, rgba.internalFormat, rgba.format, texType, filtering);
       else dye = resizeDoubleFBO(dye, dyeRes.width, dyeRes.height, rgba.internalFormat, rgba.format, texType, filtering);
@@ -512,31 +514,32 @@ export default function SplashCursor({
       if (!velocity) velocity = createDoubleFBO(simRes.width, simRes.height, rg.internalFormat, rg.format, texType, filtering);
       else velocity = resizeDoubleFBO(velocity, simRes.width, simRes.height, rg.internalFormat, rg.format, texType, filtering);
 
-      divergence = createFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST);
-      curlFBO = createFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST);
-      pressure = createDoubleFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST);
+      divergence = createFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, _gl.NEAREST);
+      curlFBO = createFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, _gl.NEAREST);
+      pressure = createDoubleFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, _gl.NEAREST);
     }
 
     type FBO = { texture: WebGLTexture; fbo: WebGLFramebuffer; width: number; height: number; texelSizeX: number; texelSizeY: number; attach: (id: number) => number };
     type DoubleFBO = { width: number; height: number; texelSizeX: number; texelSizeY: number; read: FBO; write: FBO; swap: () => void };
 
     function createFBO(w: number, h: number, internalFormat: number, format: number, type: number, param: number): FBO {
-      gl.activeTexture(gl.TEXTURE0);
-      const texture = gl.createTexture()!;
-      gl.bindTexture(gl.TEXTURE_2D, texture);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, param);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, param);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-      gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, w, h, 0, format, type, null);
-      const fbo = gl.createFramebuffer()!;
-      gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
-      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
-      gl.viewport(0, 0, w, h);
-      gl.clear(gl.COLOR_BUFFER_BIT);
+      const _gl = gl!;
+      _gl.activeTexture(_gl.TEXTURE0);
+      const texture = _gl.createTexture()!;
+      _gl.bindTexture(_gl.TEXTURE_2D, texture);
+      _gl.texParameteri(_gl.TEXTURE_2D, _gl.TEXTURE_MIN_FILTER, param);
+      _gl.texParameteri(_gl.TEXTURE_2D, _gl.TEXTURE_MAG_FILTER, param);
+      _gl.texParameteri(_gl.TEXTURE_2D, _gl.TEXTURE_WRAP_S, _gl.CLAMP_TO_EDGE);
+      _gl.texParameteri(_gl.TEXTURE_2D, _gl.TEXTURE_WRAP_T, _gl.CLAMP_TO_EDGE);
+      _gl.texImage2D(_gl.TEXTURE_2D, 0, internalFormat, w, h, 0, format, type, null);
+      const fbo = _gl.createFramebuffer()!;
+      _gl.bindFramebuffer(_gl.FRAMEBUFFER, fbo);
+      _gl.framebufferTexture2D(_gl.FRAMEBUFFER, _gl.COLOR_ATTACHMENT0, _gl.TEXTURE_2D, texture, 0);
+      _gl.viewport(0, 0, w, h);
+      _gl.clear(_gl.COLOR_BUFFER_BIT);
       const texelSizeX = 1.0 / w;
       const texelSizeY = 1.0 / h;
-      return { texture, fbo, width: w, height: h, texelSizeX, texelSizeY, attach(id) { gl.activeTexture(gl.TEXTURE0 + id); gl.bindTexture(gl.TEXTURE_2D, texture); return id; } };
+      return { texture, fbo, width: w, height: h, texelSizeX, texelSizeY, attach(id) { _gl.activeTexture(_gl.TEXTURE0 + id); _gl.bindTexture(_gl.TEXTURE_2D, texture); return id; } };
     }
 
     function createDoubleFBO(w: number, h: number, internalFormat: number, format: number, type: number, param: number): DoubleFBO {
