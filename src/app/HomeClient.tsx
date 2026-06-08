@@ -153,7 +153,7 @@ export default function HomeClient({ products }: { products: Product[] }) {
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <span className="text-3xl block mb-4">{item.icon}</span>
                       <h3 className="text-body-lg text-white mb-2">{item.title}</h3>
-                      <p className="text-body-sm text-white-50 leading-relaxed">{item.desc}</p>
+                      <p className="text-body-sm text-white-60 leading-relaxed">{item.desc}</p>
                     </div>
                   </BorderGlow>
                 </ScrollReveal>
