@@ -11,7 +11,6 @@ import BorderGlow from "@/components/BorderGlow";
 import type { Product } from "@/data/products";
 import { productCategories } from "@/data/categories";
 import { projectCases } from "@/data/cases";
-import { partnerLogos } from "@/data/partners";
 
 /* ── Static data ── */
 
@@ -29,15 +28,6 @@ const WHY_US = [
   { icon: "🚚", title: "Short Lead Time", desc: "Standard orders ship within 7–15 days. Urgent orders expedited. Dedicated project manager tracks your order end-to-end." },
   { icon: "🛡️", title: "After-Sales Guarantee", desc: "1-year full warranty with multilingual support team. Spare parts inventory maintained for all active models." },
   { icon: "📦", title: "Free Sample Available", desc: "Qualified buyers can request evaluation samples. Test our robots on your glass before committing to a bulk order." },
-];
-
-const CERTS = [
-  { name: "CE", desc: "European Conformity" },
-  { name: "FCC", desc: "Federal Communications" },
-  { name: "RoHS", desc: "Hazardous Substances" },
-  { name: "ISO 9001", desc: "Quality Management" },
-  { name: "BSCI", desc: "Social Compliance" },
-  { name: "FDA", desc: "Food Contact Safe" },
 ];
 
 /* ── Reusable section heading ── */
@@ -261,45 +251,6 @@ export default function HomeClient({ products }: { products: Product[] }) {
           </div>
         </section>
       </ScrollReveal>
-
-      {/* ═══════════ 6. Trust Badges ═══════════ */}
-      <ScrollReveal variant="fade-in">
-        <section className="py-20 md:py-28 lg:py-36">
-          <div className="container-main">
-            <SectionHeading label="Trusted Worldwide" title="Partner" highlight="Network" variant="scale-up" />
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 mb-20">
-              {partnerLogos.map((name, i) => (
-                <ScrollReveal key={name} delay={Math.min(i, 7)} variant="fade-in">
-                  <span className="text-section-md text-novu-near-black-15 font-light uppercase tracking-wider hover:text-novu-near-black-40 transition-colors duration-500 cursor-default">
-                    {name}
-                  </span>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            <ScrollReveal variant="scale-up">
-              <p className="section-label mb-8 text-center">Certifications & Compliance</p>
-            </ScrollReveal>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {CERTS.map((cert, i) => (
-                <ScrollReveal key={cert.name} delay={Math.min(i, 5)} variant="scale-up">
-                  <BorderGlow borderRadius={16} glowRadius={20} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
-                    <div className="bg-white rounded-2xl p-6 text-center hover:-translate-y-1 transition-all duration-300">
-                      <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-novu-warm-50 flex items-center justify-center">
-                        <span className="text-body-lg font-semibold text-novu-near-black-55">✓</span>
-                      </div>
-                      <p className="text-label-sm text-novu-near-black font-medium">{cert.name}</p>
-                      <p className="text-body-sm text-novu-near-black-40 mt-0.5">{cert.desc}</p>
-                    </div>
-                  </BorderGlow>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      <AnimatedDivider className="container-main" />
 
       {/* ═══════════ 7. OEM/ODM Custom Solution ═══════════ */}
       <ScrollReveal variant="fade-in">
