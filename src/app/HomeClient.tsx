@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { LuFactory, LuPalette, LuClipboardCheck, LuTruck, LuShieldCheck, LuPackageOpen } from "react-icons/lu";
 import InquiryModal from "@/components/InquiryModal";
 import QuickQuoteForm from "@/components/QuickQuoteForm";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -22,12 +23,12 @@ const STATS = [
 ];
 
 const WHY_US = [
-  { icon: "🏭", title: "Factory Direct Supply", desc: "Own 5,000m² manufacturing facility in Shenzhen. No middlemen — work directly with the source for the best pricing and full quality control." },
-  { icon: "🎨", title: "OEM / ODM Customization", desc: "Custom branding, color matching, packaging design, UI language, and feature modifications. Your brand, our engineering." },
-  { icon: "🔍", title: "Strict QC Inspection", desc: "47-point quality checklist per unit. CE, FCC, RoHS, BSCI certified. Every robot tested before leaving the production line." },
-  { icon: "🚚", title: "Short Lead Time", desc: "Standard orders ship within 7–15 days. Urgent orders expedited. Dedicated project manager tracks your order end-to-end." },
-  { icon: "🛡️", title: "After-Sales Guarantee", desc: "1-year full warranty with multilingual support team. Spare parts inventory maintained for all active models." },
-  { icon: "📦", title: "Free Sample Available", desc: "Qualified buyers can request evaluation samples. Test our robots on your glass before committing to a bulk order." },
+  { Icon: LuFactory, title: "Factory Direct Supply", desc: "Own 5,000m² manufacturing facility in Shenzhen. No middlemen — work directly with the source for the best pricing and full quality control." },
+  { Icon: LuPalette, title: "OEM / ODM Customization", desc: "Custom branding, color matching, packaging design, UI language, and feature modifications. Your brand, our engineering." },
+  { Icon: LuClipboardCheck, title: "Strict QC Inspection", desc: "47-point quality checklist per unit. CE, FCC, RoHS, BSCI certified. Every robot tested before leaving the production line." },
+  { Icon: LuTruck, title: "Short Lead Time", desc: "Standard orders ship within 7–15 days. Urgent orders expedited. Dedicated project manager tracks your order end-to-end." },
+  { Icon: LuShieldCheck, title: "After-Sales Guarantee", desc: "1-year full warranty with multilingual support team. Spare parts inventory maintained for all active models." },
+  { Icon: LuPackageOpen, title: "Free Sample Available", desc: "Qualified buyers can request evaluation samples. Test our robots on your glass before committing to a bulk order." },
 ];
 
 /* ── Reusable section heading ── */
@@ -50,12 +51,13 @@ export default function HomeClient({ products }: { products: Product[] }) {
   const [inquiryProduct, setInquiryProduct] = useState<Product | null>(null);
   const featured = products.slice(0, 8);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.classList.remove("no-scroll");
-    window.scrollTo({ top: 0, behavior: "instant" });
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: "instant" });
-    });
+    history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+    const t = setTimeout(() => window.scrollTo(0, 0), 100);
+    return () => clearTimeout(t);
   }, []);
 
   return (
@@ -101,7 +103,7 @@ export default function HomeClient({ products }: { products: Product[] }) {
                       href={`/products/${cat.slug}`}
                       className="group block bg-white rounded-2xl border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                     >
-                      <div className="aspect-[16/10] bg-novu-warm-50 relative overflow-hidden">
+                      <div className="aspect-[16/10] bg-zinc-100 relative overflow-hidden">
                         <Image src={cat.image} alt={cat.name} fill sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw" className="object-contain p-3 transition-transform duration-700 group-hover:scale-105" />
                         <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                       </div>
@@ -141,7 +143,7 @@ export default function HomeClient({ products }: { products: Product[] }) {
                   <BorderGlow borderRadius={16} glowRadius={25} backgroundColor="rgba(255,255,255,0.03)" colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55" fillOpacity={0.3} className="h-full">
                     <div className="bg-white/[0.03] rounded-2xl p-7 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden border border-white/[0.06] h-full flex flex-col">
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <span className="text-3xl block mb-4">{item.icon}</span>
+                      <item.Icon className="w-9 h-9 text-novu-orange mb-4 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
                       <h3 className="text-body-lg text-white mb-2">{item.title}</h3>
                       <p className="text-body-sm text-white-60 leading-relaxed flex-1">{item.desc}</p>
                     </div>
@@ -174,7 +176,7 @@ export default function HomeClient({ products }: { products: Product[] }) {
                     <BorderGlow borderRadius={16} glowRadius={25} colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55">
                       <article className="group bg-white rounded-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
                         <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                        <div className="aspect-[4/3] bg-novu-warm-50 relative overflow-hidden">
+                        <div className="aspect-[4/3] bg-zinc-100 relative overflow-hidden">
                           <Image src={product.image} alt={product.name} fill sizes="(max-width:640px)100vw,(max-width:1024px)50vw,25vw" className="object-contain p-2 transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <div className="p-5">
@@ -189,10 +191,10 @@ export default function HomeClient({ products }: { products: Product[] }) {
                             ))}
                           </div>
                           <div className="flex gap-2">
-                            <Link href={`/products/${product.slug}`} className="flex-1 text-center py-2 text-label-sm rounded-pill border border-novu-warm-200 text-novu-near-black-55 hover:border-novu-near-black-15 hover:text-novu-near-black transition-all duration-200">
+                            <Link href={`/products/${product.slug}`} className="flex-1 text-center py-3 text-label-sm rounded-pill border border-novu-warm-200 text-novu-near-black-55 hover:border-novu-near-black-15 hover:text-novu-near-black transition-all duration-200 min-h-[44px] flex items-center justify-center">
                               View Detail
                             </Link>
-                            <button onClick={() => setInquiryProduct(product)} className="flex-1 py-2 text-label-sm rounded-pill bg-black text-white hover:bg-black/85 transition-all duration-200">
+                            <button onClick={() => setInquiryProduct(product)} className="flex-1 py-3 text-label-sm rounded-pill bg-black text-white hover:bg-black/85 transition-all duration-200 min-h-[44px] flex items-center justify-center">
                               Get Quote
                             </button>
                           </div>
@@ -254,7 +256,7 @@ export default function HomeClient({ products }: { products: Product[] }) {
 
       {/* ═══════════ 7. OEM/ODM Custom Solution ═══════════ */}
       <ScrollReveal variant="fade-in">
-        <section className="py-20 md:py-28 lg:py-36 bg-novu-warm-50 relative overflow-hidden">
+        <section className="py-20 md:py-28 lg:py-36 bg-white relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(254,78,2,0.03)_0%,transparent_70%)] animate-breathe pointer-events-none" aria-hidden="true" />
           <div className="container-main relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

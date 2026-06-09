@@ -34,7 +34,7 @@ export default function QuickQuoteForm() {
     }
   }
 
-  const inputClass = "w-full bg-white border border-novu-warm-200 rounded-sm px-4 py-3 text-body-sm text-novu-near-black placeholder:text-novu-near-black-15 focus:outline-none focus:border-novu-orange/50 transition-colors min-h-[44px]";
+  const inputClass = "w-full bg-white border border-novu-warm-200 rounded-sm px-4 py-3 text-body-sm text-novu-near-black placeholder:text-novu-near-black-15 focus:border-novu-orange transition-colors min-h-[44px]";
   const labelClass = "block text-label-sm text-novu-near-black-55 mb-1.5 uppercase tracking-[0.1em]";
 
   if (success) {

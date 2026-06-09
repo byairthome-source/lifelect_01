@@ -28,19 +28,19 @@ export interface Product {
 // ── Common M-Series features (shared across M82–M86) ──
 const mSeriesFeatures: ProductFeature[] = [
   {
-    icon: "💧",
+    icon: "droplet",
     title: "True Wet Mop System",
     description:
       "Cloth fully saturates with water for deep cleaning. Dual 100ml tanks support both tap water and glass-specific cleaning solution for streak-free results.",
   },
   {
-    icon: "🛡️",
+    icon: "shield-check",
     title: "AI Smart Protection",
     description:
       "AI-driven G-sensor acceleration detection, MEMS auto-sensing, and 4,000–4,500Pa suction keep the robot securely on glass. UPS backup provides 25 minutes of emergency power.",
   },
   {
-    icon: "🎛️",
+    icon: "sliders",
     title: "5 Cleaning Routes",
     description:
       "Z-path, N-path, Z/N hybrid, spot cleaning, and edge-follow modes. One-touch start with auto-stop at origin when complete. Voice prompts included.",
@@ -128,13 +128,13 @@ export const products: Product[] = [
     ],
     features: [
       {
-        icon: "📏",
+        icon: "ruler",
         title: "58mm Ultra-Slim Body",
         description:
           "Thinnest in the M Series — designed for narrow window frames, sliding door tracks, and inset glass panels. Same power, smaller profile.",
       },
       {
-        icon: "⚡",
+        icon: "zap",
         title: "4 min/m² High Speed",
         description:
           "Nearly 2× faster than the standard model. Efficient path planning with MEMS auto-sensing maximizes coverage while minimizing cleaning time.",
@@ -174,13 +174,13 @@ export const products: Product[] = [
           "Enhanced navigation algorithm tuned for complex layouts — multi-pane facades, bay windows, and partitioned glass walls.",
       },
       {
-        icon: "💧",
+        icon: "droplet",
         title: "True Wet Mop System",
         description:
           "Dual 100ml water tanks with 6 auto-spray nozzles deliver consistent moisture for streak-free results on any glass surface.",
       },
       {
-        icon: "🛡️",
+        icon: "shield-check",
         title: "Full AI Protection",
         description:
           "G-sensor, MEMS edge detection, and 25-min UPS backup — enterprise-grade safety in a compact 66mm chassis.",
@@ -220,7 +220,7 @@ export const products: Product[] = [
           "Thicker 90mm chassis accommodates improved heat dissipation for continuous all-day operation without performance degradation.",
       },
       {
-        icon: "💧",
+        icon: "droplet",
         title: "True Wet Mop + 6 Nozzles",
         description:
           "Full wet mop system with 6 auto-spray nozzles and dual 100ml tanks — deep cleaning coverage at maximum speed.",
@@ -426,7 +426,7 @@ export const products: Product[] = [
     ],
     features: [
       {
-        icon: "📏",
+        icon: "ruler",
         title: "7.2cm — Thinnest Ever",
         description:
           "The slimmest robot in the entire Lifelect lineup. Fits ultra-narrow frames and sliding door tracks that no other robot can access.",

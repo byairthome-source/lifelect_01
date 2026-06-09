@@ -27,9 +27,10 @@ export default function HeroBanner() {
         fill
         sizes="100vw"
         priority
-        className="object-cover opacity-40"
+        className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50 z-[1]" />
+      {/* Subtle dark gradient at bottom only — for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 z-[1]" />
 
       {/* Centered text content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -47,7 +48,7 @@ export default function HeroBanner() {
           href="/products"
           className="inline-flex items-center gap-2 bg-white text-novu-near-black font-medium
                      rounded-full px-8 py-4 text-base md:text-lg
-                     hover:bg-novu-warm-100 hover:shadow-lg hover:-translate-y-0.5
+                     hover:bg-zinc-200 hover:shadow-lg hover:-translate-y-0.5
                      transition-all duration-300"
         >
           Explore Products

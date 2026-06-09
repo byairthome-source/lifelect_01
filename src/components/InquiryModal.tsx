@@ -114,29 +114,29 @@ export default function InquiryModal({ open, productName, productId, onClose }: 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="inq-name" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Full Name *</label>
-                <input id="inq-name" name="name" type="text" required className={`w-full bg-bg-light border px-4 py-3 text-body text-novu-near-black focus:outline-none focus:border-novu-orange/50 transition-colors min-h-[44px] rounded-sm ${fieldErrors.fullName ? "border-red-400" : "border-novu-warm-200"}`} placeholder="John Smith" onBlur={validate} onChange={() => clearFieldError("fullName")} />
+                <input id="inq-name" name="name" type="text" required className={`w-full bg-bg-light border px-4 py-3 text-body text-novu-near-black focus:border-novu-orange transition-colors min-h-[44px] rounded-sm ${fieldErrors.fullName ? "border-red-400" : "border-novu-warm-200"}`} placeholder="John Smith" onBlur={validate} onChange={() => clearFieldError("fullName")} />
                 {fieldErrors.fullName && <p className="text-red-500 text-label-sm mt-1">{fieldErrors.fullName}</p>}
               </div>
               <div>
                 <label htmlFor="inq-company" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Company *</label>
-                <input id="inq-company" name="company" type="text" required className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black focus:outline-none focus:border-novu-orange/50 transition-colors min-h-[44px] rounded-sm" placeholder="Acme Corp" />
+                <input id="inq-company" name="company" type="text" required className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black focus:border-novu-orange transition-colors min-h-[44px] rounded-sm" placeholder="Acme Corp" />
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="inq-email" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Email *</label>
-                <input id="inq-email" name="email" type="email" required className={`w-full bg-bg-light border px-4 py-3 text-body text-novu-near-black focus:outline-none focus:border-novu-orange/50 transition-colors min-h-[44px] rounded-sm ${fieldErrors.email ? "border-red-400" : "border-novu-warm-200"}`} placeholder="john@acme.com" onBlur={validate} onChange={() => clearFieldError("email")} />
+                <input id="inq-email" name="email" type="email" required className={`w-full bg-bg-light border px-4 py-3 text-body text-novu-near-black focus:border-novu-orange transition-colors min-h-[44px] rounded-sm ${fieldErrors.email ? "border-red-400" : "border-novu-warm-200"}`} placeholder="john@acme.com" onBlur={validate} onChange={() => clearFieldError("email")} />
                 {fieldErrors.email && <p className="text-red-500 text-label-sm mt-1">{fieldErrors.email}</p>}
               </div>
               <div>
                 <label htmlFor="inq-phone" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Phone</label>
-                <input id="inq-phone" name="phone" type="tel" className={`w-full bg-bg-light border px-4 py-3 text-body text-novu-near-black focus:outline-none focus:border-novu-orange/50 transition-colors min-h-[44px] rounded-sm ${fieldErrors.phone ? "border-red-400" : "border-novu-warm-200"}`} placeholder="+1 234 567 890" onBlur={validate} onChange={() => clearFieldError("phone")} />
+                <input id="inq-phone" name="phone" type="tel" className={`w-full bg-bg-light border px-4 py-3 text-body text-novu-near-black focus:border-novu-orange transition-colors min-h-[44px] rounded-sm ${fieldErrors.phone ? "border-red-400" : "border-novu-warm-200"}`} placeholder="+1 234 567 890" onBlur={validate} onChange={() => clearFieldError("phone")} />
                 {fieldErrors.phone && <p className="text-red-500 text-label-sm mt-1">{fieldErrors.phone}</p>}
               </div>
             </div>
             <div>
               <label htmlFor="inq-message" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Message *</label>
-              <textarea id="inq-message" name="message" required rows={4} className={`w-full bg-bg-light border px-4 py-3 text-body text-novu-near-black focus:outline-none focus:border-novu-orange/50 transition-colors resize-none min-h-[44px] rounded-sm ${fieldErrors.message ? "border-red-400" : "border-novu-warm-200"}`} placeholder="Tell us about your requirements..." onBlur={validate} onChange={() => clearFieldError("message")} />
+              <textarea id="inq-message" name="message" required rows={4} className={`w-full bg-bg-light border px-4 py-3 text-body text-novu-near-black focus:border-novu-orange transition-colors resize-none min-h-[44px] rounded-sm ${fieldErrors.message ? "border-red-400" : "border-novu-warm-200"}`} placeholder="Tell us about your requirements..." onBlur={validate} onChange={() => clearFieldError("message")} />
               {fieldErrors.message && <p className="text-red-500 text-label-sm mt-1">{fieldErrors.message}</p>}
             </div>
             <div className="absolute opacity-0 pointer-events-none" aria-hidden="true">

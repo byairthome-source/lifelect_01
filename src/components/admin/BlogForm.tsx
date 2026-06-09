@@ -87,7 +87,7 @@ export default function BlogForm({ initial }: { initial?: BlogFormData & { id: s
           value={form.title}
           onChange={(e) => update("title", e.target.value)}
           onBlur={() => !form.slug && generateSlug()}
-          className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:outline-none focus:border-novu-orange"
+          className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:border-novu-orange"
           placeholder="Post title"
         />
       </div>
@@ -99,7 +99,7 @@ export default function BlogForm({ initial }: { initial?: BlogFormData & { id: s
           <input
             value={form.slug}
             onChange={(e) => update("slug", e.target.value)}
-            className="flex-1 border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body font-mono text-label-sm focus:outline-none focus:border-novu-orange"
+            className="flex-1 border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body font-mono text-label-sm focus:border-novu-orange"
             placeholder="post-slug"
           />
           <button type="button" onClick={generateSlug} className="px-4 py-2.5 text-label-sm border border-novu-warm-200 rounded-xl hover:bg-novu-warm-50 transition-colors">
@@ -116,7 +116,7 @@ export default function BlogForm({ initial }: { initial?: BlogFormData & { id: s
             type="date"
             value={form.date}
             onChange={(e) => update("date", e.target.value)}
-            className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:outline-none focus:border-novu-orange"
+            className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:border-novu-orange"
           />
         </div>
         <div>
@@ -124,7 +124,7 @@ export default function BlogForm({ initial }: { initial?: BlogFormData & { id: s
           <select
             value={form.coverGradient}
             onChange={(e) => update("coverGradient", e.target.value)}
-            className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:outline-none focus:border-novu-orange"
+            className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:border-novu-orange"
           >
             {GRADIENT_OPTIONS.map((g) => (
               <option key={g.value} value={g.value}>{g.label}</option>
@@ -149,7 +149,7 @@ export default function BlogForm({ initial }: { initial?: BlogFormData & { id: s
             value={tagInput}
             onChange={(e) => setTagInput(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addTag(); } }}
-            className="flex-1 border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:outline-none focus:border-novu-orange"
+            className="flex-1 border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:border-novu-orange"
             placeholder="Add a tag..."
           />
           <button type="button" onClick={addTag} className="px-4 py-2.5 text-label-sm border border-novu-warm-200 rounded-xl hover:bg-novu-warm-50 transition-colors">
@@ -165,7 +165,7 @@ export default function BlogForm({ initial }: { initial?: BlogFormData & { id: s
           value={form.summary}
           onChange={(e) => update("summary", e.target.value)}
           rows={2}
-          className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:outline-none focus:border-novu-orange"
+          className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body focus:border-novu-orange"
           placeholder="Brief summary for cards and SEO"
         />
       </div>
@@ -179,7 +179,7 @@ export default function BlogForm({ initial }: { initial?: BlogFormData & { id: s
           value={form.body}
           onChange={(e) => update("body", e.target.value)}
           rows={20}
-          className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body font-mono text-label-sm focus:outline-none focus:border-novu-orange"
+          className="w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body font-mono text-label-sm focus:border-novu-orange"
           placeholder="Write your post content..."
         />
       </div>

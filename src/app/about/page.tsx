@@ -77,13 +77,13 @@ export default function AboutPage() {
       <div className="divider container-main" />
 
       {/* Milestones */}
-      <section className="section-spacing-sm bg-novu-warm-50">
+      <section className="section-spacing-sm bg-black text-white">
         <div className="container-main">
           <p className="section-label mb-4">Our Journey</p>
           <h2 className="section-title mb-14">Company Milestones</h2>
           <div className="relative">
             {/* Vertical line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-novu-warm-200 -translate-x-px" aria-hidden="true" />
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-px" aria-hidden="true" />
             <div className="space-y-10 md:space-y-0">
               {milestones.map((m, i) => (
                 <div key={m.year} className={`md:flex items-center gap-8 ${i % 2 === 0 ? "" : "md:flex-row-reverse"}`}>
@@ -123,7 +123,7 @@ export default function AboutPage() {
       <div className="divider container-main" />
 
       {/* Factory */}
-      <section className="section-spacing-sm bg-novu-warm-50">
+      <section className="section-spacing-sm bg-black text-white">
         <div className="container-main grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="aspect-[4/3] bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl flex items-center justify-center overflow-hidden relative">
             <svg className="w-24 h-24 opacity-20" viewBox="0 0 96 96" fill="none" stroke="#fff" strokeWidth="1.5" aria-hidden="true">

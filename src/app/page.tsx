@@ -9,9 +9,12 @@ export default function SplashPage() {
   const [showSkip, setShowSkip] = useState(false);
 
   const navigate = useCallback(() => {
+    // Must be set BEFORE navigation — browser checks it at commit time
+    history.scrollRestoration = "manual";
+    window.scrollTo({ top: 0, behavior: "instant" });
     setVisible(false);
     setTimeout(() => {
-      router.push("/home");
+      router.push("/home", { scroll: false });
     }, 700);
   }, [router]);
 

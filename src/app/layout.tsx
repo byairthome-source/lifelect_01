@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ToastProvider from "@/components/ToastProvider";
 import SplashCursorGate from "@/components/SplashCursorGate";
+import SmoothScrollEnabler from "@/components/SmoothScrollEnabler";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
           <WhatsAppButton />
           <ToastProvider />
           <SplashCursorGate />
+          <SmoothScrollEnabler />
         </SessionProvider>
       </body>
     </html>

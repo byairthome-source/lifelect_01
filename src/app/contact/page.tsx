@@ -59,26 +59,26 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="contact-name" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Full Name *</label>
-                  <input id="contact-name" name="name" type="text" required className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:outline-none focus:border-novu-orange/50 transition-colors rounded-sm min-h-[44px]" placeholder="John Smith" />
+                  <input id="contact-name" name="name" type="text" required className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:border-novu-orange transition-colors rounded-sm min-h-[44px]" placeholder="John Smith" />
                 </div>
                 <div>
                   <label htmlFor="contact-email" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Email *</label>
-                  <input id="contact-email" name="email" type="email" required className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:outline-none focus:border-novu-orange/50 transition-colors rounded-sm min-h-[44px]" placeholder="john@acme.com" />
+                  <input id="contact-email" name="email" type="email" required className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:border-novu-orange transition-colors rounded-sm min-h-[44px]" placeholder="john@acme.com" />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="contact-company" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Company</label>
-                  <input id="contact-company" name="company" type="text" className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:outline-none focus:border-novu-orange/50 transition-colors rounded-sm min-h-[44px]" placeholder="Acme Corp" />
+                  <input id="contact-company" name="company" type="text" className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:border-novu-orange transition-colors rounded-sm min-h-[44px]" placeholder="Acme Corp" />
                 </div>
                 <div>
                   <label htmlFor="contact-phone" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Phone</label>
-                  <input id="contact-phone" name="phone" type="tel" className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:outline-none focus:border-novu-orange/50 transition-colors rounded-sm min-h-[44px]" placeholder="+1 234 567 890" />
+                  <input id="contact-phone" name="phone" type="tel" className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:border-novu-orange transition-colors rounded-sm min-h-[44px]" placeholder="+1 234 567 890" />
                 </div>
               </div>
               <div>
                 <label htmlFor="contact-subject" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Subject</label>
-                <select id="contact-subject" name="subject" className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black focus:outline-none focus:border-novu-orange/50 transition-colors rounded-sm min-h-[44px]">
+                <select id="contact-subject" name="subject" className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black focus:border-novu-orange transition-colors rounded-sm min-h-[44px]">
                   <option>General Inquiry</option>
                   <option>Wholesale Pricing</option>
                   <option>OEM / ODM Partnership</option>
@@ -88,7 +88,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <label htmlFor="contact-message" className="block text-label-sm text-novu-near-black-55 mb-2 uppercase tracking-[0.1em]">Message *</label>
-                <textarea id="contact-message" name="message" required rows={5} className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:outline-none focus:border-novu-orange/50 transition-colors resize-none rounded-sm" placeholder="Tell us about your requirements..." />
+                <textarea id="contact-message" name="message" required rows={5} className="w-full bg-bg-light border border-novu-warm-200 px-4 py-3 text-body text-novu-near-black placeholder:text-novu-near-black-15 focus:border-novu-orange transition-colors resize-none rounded-sm" placeholder="Tell us about your requirements..." />
               </div>
               <div className="absolute opacity-0 pointer-events-none" aria-hidden="true">
                 <input type="text" name="website" tabIndex={-1} autoComplete="off" />

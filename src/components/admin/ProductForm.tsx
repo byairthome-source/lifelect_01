@@ -8,6 +8,17 @@ import toast from "react-hot-toast";
 interface SpecItem { key: string; value: string; unit: string; }
 interface FeatureItem { icon: string; title: string; description: string; }
 
+const ICON_OPTIONS = [
+  { value: "droplet", label: "Droplet (Water)" },
+  { value: "shield-check", label: "Shield Check (Safety)" },
+  { value: "sliders", label: "Sliders (Modes)" },
+  { value: "ruler", label: "Ruler (Size)" },
+  { value: "zap", label: "Zap (Speed)" },
+  { value: "cog", label: "Cog (Motor)" },
+  { value: "sparkles", label: "Sparkles (Clean)" },
+  { value: "wifi", label: "WiFi (Wireless)" },
+];
+
 interface ProductFormData {
   id?: string;
   name: string; slug: string; series: string; subtitle: string; summary: string;
@@ -145,7 +156,7 @@ export default function ProductForm({ initial, isEdit }: Props) {
     }
   }
 
-  const inputClass = "w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body-sm text-novu-near-black focus:outline-none focus:border-novu-orange/50 transition-colors bg-white";
+  const inputClass = "w-full border border-novu-warm-200 rounded-xl px-4 py-2.5 text-body-sm text-novu-near-black focus:border-novu-orange transition-colors bg-white";
   const labelClass = "block text-label-sm text-novu-near-black-55 mb-1.5 uppercase tracking-[0.1em]";
 
   return (
@@ -243,7 +254,12 @@ export default function ProductForm({ initial, isEdit }: Props) {
         </div>
         {form.features.map((feat, i) => (
           <div key={i} className="flex gap-3 items-start">
-            <input className={`${inputClass} w-20`} placeholder="Icon" value={feat.icon} onChange={(e) => { const f = [...form.features]; f[i] = { ...f[i], icon: e.target.value }; update("features", f); }} />
+            <select className={`${inputClass} w-32`} value={feat.icon} onChange={(e) => { const f = [...form.features]; f[i] = { ...f[i], icon: e.target.value }; update("features", f); }}>
+              <option value="">Icon</option>
+              {ICON_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
             <input className={inputClass} placeholder="Title" value={feat.title} onChange={(e) => { const f = [...form.features]; f[i] = { ...f[i], title: e.target.value }; update("features", f); }} />
             <textarea className={inputClass} placeholder="Description" rows={2} value={feat.description} onChange={(e) => { const f = [...form.features]; f[i] = { ...f[i], description: e.target.value }; update("features", f); }} />
             <button type="button" onClick={() => update("features", form.features.filter((_, j) => j !== i))} className="p-2.5 text-novu-near-black-55 hover:text-red-500"><FiTrash2 className="w-4 h-4" /></button>

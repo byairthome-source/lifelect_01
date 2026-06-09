@@ -6,6 +6,7 @@ import Link from "next/link";
 import InquiryModal from "@/components/InquiryModal";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
+import FeatureIcon from "@/components/FeatureIcon";
 import type { Product } from "@/data/products";
 
 function buildProductSchema(product: Product) {
@@ -111,7 +112,7 @@ export default function ProductDetailClient({ product, moreProducts }: { product
             {product.features.map((feature) => (
               <div key={feature.title} className="bg-white rounded-2xl p-7 border border-novu-warm-100 hover:border-novu-warm-200 hover:shadow-card-float hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-novu-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="text-2xl mb-4 block opacity-60">{feature.icon}</span>
+                <FeatureIcon name={feature.icon} className="w-8 h-8 text-novu-orange mb-4 opacity-60" />
                 <h3 className="text-body-lg text-novu-near-black mb-2">{feature.title}</h3>
                 <p className="text-body-sm text-novu-near-black-55 leading-relaxed">{feature.description}</p>
               </div>

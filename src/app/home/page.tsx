@@ -46,6 +46,11 @@ export default async function Home() {
   const products = await getProducts();
   return (
     <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `history.scrollRestoration="manual";window.scrollTo(0,0)`,
+        }}
+      />
       <JsonLd data={organizationSchema} />
       <JsonLd data={webSiteSchema} />
       <HeroBanner />

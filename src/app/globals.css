@@ -8,8 +8,11 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* default instant — smooth enabled via JS after page ready */
     scroll-padding-top: 100px;
+  }
+  html.smooth-scroll {
+    scroll-behavior: smooth;
   }
   html.no-scroll {
     overflow: hidden;
@@ -18,6 +21,15 @@
     @apply bg-bg-light text-novu-near-black font-sans antialiased;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  /* Visible focus ring — 2–4px per Apple HIG / WCAG */
+  :focus-visible {
+    outline: 2px solid rgba(254, 78, 2, 0.6);
+    outline-offset: 2px;
+  }
+  /* Invisible outline for mouse users (:focus:not(:focus-visible)) */
+  :focus:not(:focus-visible) {
+    outline: none;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply text-novu-near-black;
