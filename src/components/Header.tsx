@@ -81,11 +81,13 @@ export default function Header() {
           Lifelect<span className="text-novu-orange">.</span>
         </Link>
 
-        {/* Desktop Nav — frosted glass pill container wrapping nav links + CTA */}
+        {/* Desktop Nav — frosted glass pill: dark glass on hero, light glass on content */}
         <nav
           aria-label="Main navigation"
-          className={`hidden lg:flex items-center gap-0 rounded-full px-2 h-[50px] transition-all duration-500 bg-white/15 backdrop-blur-md shadow-glass-inset-light ${
-            overHero ? "border border-white/20" : "border border-novu-warm-200/60"
+          className={`hidden lg:flex items-center gap-0 rounded-full px-2 h-[50px] transition-all duration-500 backdrop-blur-md ${
+            overHero
+              ? "bg-black/30 border border-white/15"
+              : "bg-white/80 border border-novu-warm-200/40 shadow-glass-inset-light"
           }`}
         >
           {navLinks.map((link) => (
@@ -94,17 +96,21 @@ export default function Header() {
               href={link.href}
               className={`text-nav leading-tight rounded-full px-5 py-1.5 transition-all duration-300 ${
                 overHero
-                  ? "text-white/80 hover:text-white hover:bg-white/10"
-                  : "text-novu-near-black/60 hover:text-novu-near-black"
+                  ? "text-white/85 hover:text-white hover:bg-white/10"
+                  : "text-novu-near-black/60 hover:text-novu-near-black hover:bg-novu-warm-50/50"
               }`}
             >
               {link.label}
             </Link>
           ))}
-          {/* CTA button inside the glass container — wave bounce on each character */}
+          {/* CTA button — always high contrast */}
           <Link
             href="/contact"
-            className="group-cta inline-flex text-label-sm ml-2 h-10 px-5 rounded-pill items-center font-medium transition-all duration-300 bg-black text-white hover:bg-black/85 hover:shadow-lg"
+            className={`group-cta inline-flex text-label-sm ml-2 h-10 px-5 rounded-pill items-center font-medium transition-all duration-300 ${
+              overHero
+                ? "bg-white text-novu-near-black hover:bg-white/90 hover:shadow-lg"
+                : "bg-black text-white hover:bg-black/85 hover:shadow-lg"
+            }`}
           >
             {"Get in Touch".split("").map((char, i) => (
               <span
