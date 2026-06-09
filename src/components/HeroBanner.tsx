@@ -27,19 +27,19 @@ export default function HeroBanner() {
         fill
         sizes="100vw"
         priority
-        className="object-cover"
+        className="object-cover opacity-45"
       />
-      {/* Subtle dark gradient at bottom only — for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 z-[1]" />
+      {/* Dark overlay — ensures text readability on any background */}
+      <div className="absolute inset-0 bg-black/55 z-[1]" />
 
       {/* Centered text content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="text-white font-bold text-5xl md:text-7xl lg:text-[80px] leading-[1.1] mb-6 tracking-tight">
+        <h1 className="text-white font-bold text-5xl md:text-7xl lg:text-[80px] leading-[1.1] mb-6 tracking-tight [text-shadow:0_4px_24px_rgba(0,0,0,0.6)]">
           Smart Window Cleaning<br />
-          for a Brighter Home
+          for a <span className="text-novu-orange">Brighter Home</span>
         </h1>
 
-        <p className="text-white/70 text-lg md:text-xl font-light max-w-xl mx-auto mb-10 leading-relaxed">
+        <p className="text-white/85 text-lg md:text-xl font-light max-w-xl mx-auto mb-10 leading-relaxed [text-shadow:0_2px_8px_rgba(0,0,0,0.5)]">
           Professional-grade robotic window cleaners engineered with 5000Pa suction,
           intelligent path planning, and uncompromising safety.
         </p>
