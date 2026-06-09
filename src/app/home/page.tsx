@@ -10,7 +10,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Lifelect",
   url: "https://lifelect.com",
-  logo: "https://lifelect.com/icon.svg",
+  logo: "https://lifelect.com/images/logo/logo7.png",
   description:
     "Professional-grade window cleaning robots for commercial and residential buildings. B2B wholesale, OEM/ODM, and distribution partnerships worldwide.",
   address: {

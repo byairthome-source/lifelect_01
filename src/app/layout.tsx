@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
+    images: [{ url: "/images/logo/logo7.png", width: 512, height: 512 }],
     siteName: "Lifelect",
     title: "Lifelect — Smart Window Cleaning Solutions",
     description:

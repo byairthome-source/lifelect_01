@@ -22,6 +22,12 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
 
       <section className="section-spacing-sm bg-bg-light">
         <div className="container-main">
+          {posts.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-body-lg text-novu-near-black-40 mb-2">No articles yet</p>
+              <p className="text-body-sm text-novu-near-black-15">Check back soon for industry insights and product guides.</p>
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post) => (
               <Link
@@ -57,6 +63,7 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
               </Link>
             ))}
           </div>
+          )}
         </div>
       </section>
     </>

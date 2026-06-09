@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Lifelect Window Cleaning Robot Portfolio",
     description:
       "Professional-grade window cleaning robots — wholesale, OEM/ODM, and distribution available.",
-    images: ["/images/og-products.jpg"],
+    images: ["/images/logo/logo7.png"],
   },
   twitter: {
     card: "summary_large_image",
