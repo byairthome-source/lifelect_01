@@ -228,16 +228,16 @@ export default function HomeClient({ products }: { products: Product[] }) {
             </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {projectCases.map((c, i) => (
-                <ScrollReveal key={c.title} delay={Math.min(i, 5)} variant="fade-in">
-                  <BorderGlow borderRadius={16} glowRadius={25} backgroundColor="rgba(255,255,255,0.05)" colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55" fillOpacity={0.3}>
-                    <div className="bg-white/5 rounded-2xl p-7 hover:bg-white/8 transition-all duration-300">
+                <ScrollReveal key={c.title} delay={Math.min(i, 5)} variant="fade-in" className="h-full">
+                  <BorderGlow borderRadius={16} glowRadius={25} backgroundColor="rgba(255,255,255,0.05)" colors={["#fe4e02", "#f97316", "#fbbf24"]} glowColor="25 100 55" fillOpacity={0.3} className="h-full">
+                    <div className="bg-white/5 rounded-2xl p-7 hover:bg-white/8 transition-all duration-300 h-full flex flex-col">
                       <div className="flex items-center gap-2 mb-3">
                         <span className="text-label-sm text-novu-orange uppercase tracking-[0.1em]">{c.industry}</span>
                         <span className="text-white-15">·</span>
                         <span className="text-label-sm text-white-40">{c.region}</span>
                       </div>
                       <h3 className="text-body-lg text-white mb-2">{c.title}</h3>
-                      <p className="text-body-sm text-white-40 leading-relaxed mb-5">{c.desc}</p>
+                      <p className="text-body-sm text-white-40 leading-relaxed mb-5 flex-1">{c.desc}</p>
                       <div className="flex flex-wrap gap-2">
                         {c.highlights.map((h) => (
                           <span key={h} className="text-label-sm text-white-60 bg-white/5 border border-white/10 rounded-full px-3 py-1">{h}</span>
