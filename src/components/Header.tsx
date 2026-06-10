@@ -12,7 +12,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === "/home";
+  const isHome = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [overHero, setOverHero] = useState(isHome);
   const [hidden, setHidden] = useState(false);
