@@ -22,7 +22,7 @@ export default function ProductsClient({ products }: { products: Product[] }) {
         </div>
       </section>
 
-      <section className="bg-bg-light border-y border-novu-warm-100 sticky top-16 lg:top-20 z-40">
+      <section className="bg-bg-light border-y border-novu-warm-100">
         <div className="container-main py-4 flex flex-wrap items-center gap-3">
           {categories.map((cat) => (
             <button
