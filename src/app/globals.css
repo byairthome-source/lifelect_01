@@ -103,7 +103,7 @@
     @apply text-section-md lg:text-section-lg text-novu-near-black font-light;
   }
   .section-body {
-    @apply text-body text-novu-near-black-40 max-w-2xl;
+    @apply text-body text-novu-near-black-60 max-w-2xl;
   }
 
   /* ── Dividers ── */

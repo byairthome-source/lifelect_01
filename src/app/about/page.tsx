@@ -80,7 +80,7 @@ export default function AboutPage() {
       <section className="section-spacing-sm bg-black text-white">
         <div className="container-main">
           <p className="section-label mb-4">Our Journey</p>
-          <h2 className="section-title mb-14">Company Milestones</h2>
+          <h2 className="text-section-md lg:text-section-lg text-white font-light mb-14">Company Milestones</h2>
           <div className="relative">
             {/* Vertical line */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-px" aria-hidden="true" />
@@ -136,10 +136,10 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="section-label mb-4">Manufacturing</p>
-            <h2 className="text-section-md text-novu-near-black font-light mb-6">
+            <h2 className="text-section-md text-white font-light mb-6">
               ISO-Certified Factory in <span className="font-serif italic text-novu-orange">Shenzhen</span>
             </h2>
-            <div className="space-y-4 text-body text-novu-near-black-55 leading-relaxed">
+            <div className="space-y-4 text-body text-white/70 leading-relaxed">
               <p>
                 Our 3,000 m² manufacturing facility in Bao&apos;an District, Shenzhen operates with ISO 9001
                 quality management systems. Every window cleaning robot passes through a 47-point inspection
@@ -150,7 +150,7 @@ export default function AboutPage() {
                 container-level wholesale orders. Our production lines can scale to 50,000 units per month.
               </p>
               <p>
-                <strong className="text-novu-near-black-60 font-medium">Certifications:</strong> CE, FCC, RoHS, ISO 9001
+                <strong className="text-white font-medium">Certifications:</strong> CE, FCC, RoHS, ISO 9001
               </p>
             </div>
           </div>
