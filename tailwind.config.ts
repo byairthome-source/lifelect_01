@@ -9,26 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ── Surface hierarchy (warm-toned) ──
-        "bg-light": "#FDFDFF",
-        "novu-warm-50": "#F7F5F3",
-        "novu-warm-100": "#EDE9E5",
-        "novu-warm-200": "#DDD7CF",
-        "novu-warm-300": "#C4BDB4",
-        "novu-warm-500": "#8B7E74",
+        // ── Surface hierarchy ──
+        "bg-light": "#FFFFFF",
+        "novu-warm-50": "#F5F5F5",
+        "novu-warm-100": "#EEEEEE",
+        "novu-warm-200": "#E0E0E0",
+        "novu-warm-300": "#CCCCCC",
+        "novu-warm-500": "#999999",
 
         // ── Core brand ──
         black: "#000000",
         "novu-orange": "#fe4e02",
         "novu-blue": "#3B82F6",
 
-        // ── Text (near-black with opacity stops) ──
-        "novu-near-black": "#14171a",
-        "novu-near-black-60": "rgba(20, 23, 26, 0.60)",
-        "novu-near-black-55": "rgba(20, 23, 26, 0.55)",
-        "novu-near-black-40": "rgba(20, 23, 26, 0.40)",
-        "novu-near-black-15": "rgba(20, 23, 26, 0.15)",
-        "novu-near-black-5": "rgba(20, 23, 26, 0.05)",
+        // ── Text — primary #333, secondary #666, placeholder #999 ──
+        "novu-near-black": "#333333",
+        "novu-near-black-60": "#666666",
+        "novu-near-black-55": "#666666",
+        "novu-near-black-40": "#999999",
+        "novu-near-black-15": "#CCCCCC",
+        "novu-near-black-5": "rgba(0, 0, 0, 0.05)",
 
         // ── White opacity stops ──
         "white-80": "rgba(255,255,255,0.8)",
