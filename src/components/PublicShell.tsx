@@ -8,8 +8,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 export default function PublicShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith("/admin");
-  const isSplash = pathname === "/";
-  if (isAdmin || isSplash) return <>{children}</>;
+  if (isAdmin) return <>{children}</>;
   return (
     <>
       <ScrollProgress />

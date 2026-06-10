@@ -16,6 +16,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [overHero, setOverHero] = useState(isHome);
   const [hidden, setHidden] = useState(false);
+  const [entrance, setEntrance] = useState(true);
   const lastY = useRef(0);
 
   useEffect(() => {
@@ -43,6 +44,13 @@ export default function Header() {
     }
   }, [mobileOpen]);
 
+  // ── Entrance animation: slide down after hero text reveals ──
+  useEffect(() => {
+    if (!isHome) { setEntrance(false); return; }
+    const t = setTimeout(() => setEntrance(false), 1500);
+    return () => clearTimeout(t);
+  }, [isHome]);
+
   // ── Close mobile menu on route change ──
   useEffect(() => {
     setMobileOpen(false);
@@ -65,7 +73,9 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-[10px] left-0 right-0 z-50 bg-transparent transition-transform duration-300 ${hidden ? "-translate-y-[calc(100%+20px)]" : "translate-y-0"}`}
+      className={`fixed top-[10px] left-0 right-0 z-50 bg-transparent transition-transform duration-500 ${
+        entrance ? "-translate-y-[calc(100%+30px)]" : hidden ? "-translate-y-[calc(100%+20px)]" : "translate-y-0"
+      }`}
       role="banner"
       aria-label="Site header"
     >
