@@ -3,6 +3,7 @@
 import { useState, useLayoutEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { BLUR_PLACEHOLDER_FACTORY } from "@/lib/blur-placeholder";
 import { LuFactory, LuPalette, LuClipboardCheck, LuTruck, LuShieldCheck, LuPackageOpen } from "react-icons/lu";
 import InquiryModal from "@/components/InquiryModal";
 import QuickQuoteForm from "@/components/QuickQuoteForm";
@@ -287,6 +288,8 @@ export default function HomeClient({ products }: { products: Product[] }) {
                     alt="Lifelect Shenzhen Factory — 5,000m² ISO 9001 & BSCI Certified Manufacturing Facility"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    placeholder="blur"
+                    blurDataURL={BLUR_PLACEHOLDER_FACTORY}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

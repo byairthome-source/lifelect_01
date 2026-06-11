@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { BLUR_PLACEHOLDER_HERO } from "@/lib/blur-placeholder";
 
 export default function HeroBanner() {
   return (
@@ -12,6 +13,8 @@ export default function HeroBanner() {
         fill
         sizes="100vw"
         priority
+        placeholder="blur"
+        blurDataURL={BLUR_PLACEHOLDER_HERO}
         className="object-cover opacity-45 animate-[hero-zoom_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards]"
       />
       {/* Dark overlay — ensures text readability on any background */}

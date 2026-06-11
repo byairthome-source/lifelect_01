@@ -1,9 +1,17 @@
+import type { Metadata } from "next";
 import HeroBanner from "@/components/HeroBanner";
 import JsonLd from "@/components/JsonLd";
 import { getProducts } from "@/lib/products";
 import HomeClient from "./HomeClient";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // ISR: revalidate every hour
+
+export const metadata: Metadata = {
+  title: "Lifelect — Smart Window Cleaning Solutions",
+  description:
+    "Professional-grade window cleaning robots for commercial and residential buildings. B2B wholesale, OEM/ODM, and distribution partnerships worldwide.",
+  alternates: { canonical: "/" },
+};
 
 const organizationSchema = {
   "@context": "https://schema.org",

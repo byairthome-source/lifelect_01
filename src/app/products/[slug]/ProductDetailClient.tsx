@@ -7,6 +7,7 @@ import InquiryModal from "@/components/InquiryModal";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import FeatureIcon from "@/components/FeatureIcon";
+import { BLUR_PLACEHOLDER_PRODUCT } from "@/lib/blur-placeholder";
 import type { Product } from "@/data/products";
 
 function buildProductSchema(product: Product) {
@@ -64,6 +65,8 @@ export default function ProductDetailClient({ product, moreProducts }: { product
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
+                placeholder="blur"
+                blurDataURL={BLUR_PLACEHOLDER_PRODUCT}
                 className="object-contain p-4"
               />
             </div>
